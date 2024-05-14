@@ -14,11 +14,8 @@ public class Order
     [ForeignKey("CashierId")]
     public Cashier Cashier { get; set; }
 
-    // Not Mapped means it won't be added to SQL db
-    [NotMapped]
-    public decimal Total
-    {
-        get
+    public decimal Total(List<OrderProduct> OrderProducts)
+    {   
         {
             decimal total = 0;
             foreach (var orderProduct in OrderProducts)
